@@ -15,20 +15,17 @@ glance. This directory is where Phase 1 gets tracked at build-item
 granularity as it actually happens. Phases 2-4 aren't broken out yet -
 do that once Phase 1 is far enough along to make it worthwhile.
 
-## Build order (Phase 1, all open)
+## Build order (Phase 1)
 
 Roughly the order the pipeline needs to come together in - each stage
-feeds the next:
+feeds the next. The random seed/noise generator shipped 2026-07-20 -
+see [completed/noise-generator.md](completed/noise-generator.md).
+Remaining, in order:
 
-1. [Random seed/noise generator](active/noise-generator.md) - brainstem
-   equivalent, the raw signal everything else is built from.
-2. [Stable Diffusion imagery generation](active/image-generation.md) -
+1. [Stable Diffusion imagery generation](active/image-generation.md) -
    turns the noise into an image, local GPU.
-3. [Claude Vision narrative interpretation](active/narrative-interpretation.md) -
+2. [Claude Vision narrative interpretation](active/narrative-interpretation.md) -
    narrates the imagery, high temperature + logic suppression.
-4. [Feedback loop + orchestration layer](active/feedback-loop.md) -
+3. [Feedback loop + orchestration layer](active/feedback-loop.md) -
    wires the above three together, feeds narrative back in as the next
    seed, runs with no exit condition.
-
-Nothing completed yet - `completed/` will fill in as Phase 1 items
-ship.

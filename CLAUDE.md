@@ -60,8 +60,8 @@ change came out of; it's a hard rule, not a style preference.
 
 ## Current state
 
-Pre-PoC. Phase 1 (Proof of Concept) is in design — see @README.md for
-the full roadmap.
+Phase 1 (Proof of Concept) is under way — see @README.md for the full
+roadmap.
 
 - `docs/todos/README.md` — open work for the current phase, in build
   order.
@@ -93,6 +93,12 @@ out Phase 2-4 until Phase 1 is far enough along to make that worthwhile.
 
 ## Notes
 
-No build or test commands exist yet — nothing has been implemented.
-Add real commands here once Phase 1 code lands rather than guessing at
-what they might be.
+- Python project managed with `uv`: `uv venv` to create `.venv/`, `uv
+  pip install -e .` to install `oneiros/` itself (editable) plus its
+  deps from `pyproject.toml`. Run scripts as `.venv/bin/python
+  scripts/whatever.py` rather than invoking the system interpreter —
+  the package is only importable inside that venv.
+- No automated test suite yet. `scripts/verify_noise.py` is a manual
+  smoke test for the noise generator — loads a real Stable Diffusion
+  pipeline, which downloads several GB of model weights to the
+  Hugging Face cache on first run.

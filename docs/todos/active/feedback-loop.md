@@ -3,7 +3,7 @@
 **Status: open.** Part of Phase 1 (Proof of Concept) — see the
 [root README](../../../README.md#phase-1--proof-of-concept-minimal-cost-weeks-to-build).
 Depends on the other three Phase 1 items existing first:
-[noise-generator.md](noise-generator.md),
+[noise-generator.md](../completed/noise-generator.md),
 [image-generation.md](image-generation.md),
 [narrative-interpretation.md](narrative-interpretation.md).
 
