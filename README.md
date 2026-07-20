@@ -45,6 +45,9 @@ Core requirements:
 - Stable Diffusion (local GPU)
 - A feedback loop with no exit condition
 
+Tracked at build-item granularity in [`docs/todos/`](docs/todos/README.md)
+as work actually starts.
+
 ### Phase 2 — Sensory Expansion *(months)*
 - Audio generation (Suno AI / similar) producing soundscapes matching the narrative
 - Video generation (Runway ML / similar) animating the imagery
