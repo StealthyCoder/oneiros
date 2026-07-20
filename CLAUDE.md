@@ -82,6 +82,27 @@ out Phase 2-4 until Phase 1 is far enough along to make that worthwhile.
 - The feedback loop is designed to run with **no exit condition** —
   don't add a convergence check or a max-cycle limit unless asked.
 
+## Naming things
+
+Puns, quips, and outright silly names for functions, variables, and
+files are welcome here — not something to tidy up into whatever the
+blandest possible name would be. A cache-busting helper called
+`cache_buzzter_aldrin` is exactly the right energy for this project;
+lean into it rather than defaulting to `bust_cache`.
+
+Two guardrails, so the fun doesn't cost the next reader anything:
+
+- Keep the literal functional keyword in there as a substring and pun
+  around it (`cache_buzzter_aldrin` still greps for "cache") rather
+  than replacing it outright — that's what keeps a joke findable
+  instead of cryptic.
+- Skip the pun on names that are also the canonical term for a concept
+  elsewhere in README.md or docs/todos/ (e.g. `generate_latents`, the
+  Phase 3 agent names like "Brainstem Agent") — those need to stay the
+  plain word so a reader connecting code to roadmap isn't stuck
+  decoding a joke first. Everywhere else — internal helpers, scripts,
+  local variables — fair game.
+
 ## Workflow
 
 - One markdown file per unit of work under `docs/todos/`. When an item
