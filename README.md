@@ -116,6 +116,14 @@ Oneiros differs in one specific intent: it is not trying to make AI *perform* dr
 
 ---
 
+## Getting Started
+
+Want to run the code, not just read about it? Setup, day-to-day
+commands, and project layout are in
+[GETTING_STARTED.md](GETTING_STARTED.md).
+
+---
+
 ## Contributing
 
 All contributions welcome — code, ideas, philosophical challenges, neuroscience expertise, and honest scepticism.
