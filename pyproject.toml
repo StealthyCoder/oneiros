@@ -1,0 +1,16 @@
+[project]
+name = "oneiros"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "torch",
+    "diffusers",
+    "transformers",
+    "accelerate",
+    "safetensors",
+    "pillow",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
