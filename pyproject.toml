@@ -20,6 +20,7 @@ dev = [
     "black>=26.5.1",
     "flake8>=7.3.0",
     "isort>=8.0.1",
+    "poethepoet>=0.48.0",
 ]
 
 [tool.black]
@@ -28,3 +29,15 @@ target-version = ["py311"]
 
 [tool.isort]
 profile = "black"
+
+[tool.poe.tasks]
+tell-tale-lint = { sequence = [
+    { cmd = "black --check ." },
+    { cmd = "isort --check-only ." },
+    { cmd = "flake8 ." },
+], help = "Check formatting, import order, and style - nothing stays buried under the floorboards for CI to find" }
+raven-format = { sequence = [
+    { cmd = "black ." },
+    { cmd = "isort ." },
+], help = "Auto-fix formatting and import order with black + isort" }
+verify-noise = { cmd = "python scripts/verify_noise.py", help = "Manual smoke test: loads a real Stable Diffusion pipeline (downloads several GB to the HF cache on first run) and confirms the noise generator feeds it correctly" }
