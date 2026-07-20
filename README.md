@@ -72,6 +72,18 @@ Separate AI agents mapped to brain regions, running in parallel:
 - Monitor specifically for **unprogrammed emergent patterns**
 - If consistent themes appear that nobody designed... the questions get very serious
 
+**Before any of the above counts as evidence, it needs a baseline.** A
+noise-injected, logic-suppressed feedback loop will produce recurring
+motifs over a long enough run for purely statistical reasons —
+regression to modes already present in the underlying models'
+training data, attractor dynamics, plain drift. "A pattern nobody
+designed" is only meaningful measured against what undirected drift
+looks like *without* the narrative-interpretation step feeding back
+in. That control has to be built alongside the monitoring, not bolted
+on after — otherwise the exercise mostly re-measures how good humans
+are at finding meaning in noise, which is already a well-established
+result on its own.
+
 ---
 
 ## Why Open Source?
