@@ -8,7 +8,7 @@ MODEL_ID = "stable-diffusion-v1-5/stable-diffusion-v1-5"
 
 def main() -> None:
     latents, seed = generate_latents(image_height=512, image_width=512)
-    print(f"generated latents: shape={tuple(latents.shape)} dtype={latents.dtype} seed={seed}")
+    print(f"latents: shape={tuple(latents.shape)} dtype={latents.dtype} seed={seed}")
 
     pipe = StableDiffusionPipeline.from_pretrained(MODEL_ID, torch_dtype=torch.float16)
     pipe.to("cuda")
@@ -18,9 +18,10 @@ def main() -> None:
         prompt="",
         latents=latents.to(device="cuda", dtype=torch.float16),
         num_inference_steps=2,
-        guidance_scale=1.0,  # skips the unconditional branch, halves memory for this smoke test
+        # guidance_scale=1.0 skips the unconditional branch, halving memory here
+        guidance_scale=1.0,
     )
-    print(f"pipeline accepted the generated latents, produced image size={result.images[0].size}")
+    print(f"pipeline accepted latents, produced image size={result.images[0].size}")
 
 
 if __name__ == "__main__":

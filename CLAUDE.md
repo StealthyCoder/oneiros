@@ -93,11 +93,21 @@ out Phase 2-4 until Phase 1 is far enough along to make that worthwhile.
 
 ## Notes
 
-- Python project managed with `uv`: `uv venv` to create `.venv/`, `uv
-  pip install -e .` to install `oneiros/` itself (editable) plus its
-  deps from `pyproject.toml`. Run scripts as `.venv/bin/python
-  scripts/whatever.py` rather than invoking the system interpreter —
-  the package is only importable inside that venv.
+- Python project managed with `uv`, standard workflow: `uv sync` sets
+  up `.venv/` and installs `oneiros/` (editable) plus its deps and
+  dev tools from `pyproject.toml`/`uv.lock`; `uv run <cmd>` runs
+  anything inside that environment (`uv run python scripts/whatever.py`,
+  `uv run black .`) rather than invoking `.venv/bin/python` directly or
+  activating the venv by hand. `uv.lock` is committed — don't hand-edit
+  it, let `uv add`/`uv sync` manage it.
+- Lint/format: `black`, `isort` (profile `black`), `flake8` — all dev
+  dependencies (`uv sync --only-dev` installs just these, skipping the
+  heavy ML deps, e.g. for a fast lint-only pass). Config lives in
+  `pyproject.toml` (`[tool.black]`, `[tool.isort]`) and `.flake8`
+  (flake8 itself doesn't read pyproject.toml). CI (`.github/workflows/lint.yml`)
+  runs all three on every push/PR to `main` — keep code passing all
+  three before committing, don't let CI be the first place a
+  formatting issue shows up.
 - No automated test suite yet. `scripts/verify_noise.py` is a manual
   smoke test for the noise generator — loads a real Stable Diffusion
   pipeline, which downloads several GB of model weights to the
