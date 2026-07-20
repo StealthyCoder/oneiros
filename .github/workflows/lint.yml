@@ -19,11 +19,5 @@ jobs:
       - name: Install dev tools only (skip ML deps, not needed for linting)
         run: uv sync --only-dev --locked
 
-      - name: black
-        run: uv run --no-sync black --check .
-
-      - name: isort
-        run: uv run --no-sync isort --check-only .
-
-      - name: flake8
-        run: uv run --no-sync flake8 .
+      - name: tell-tale-lint (black, isort, flake8)
+        run: uv run --no-sync poe tell-tale-lint
