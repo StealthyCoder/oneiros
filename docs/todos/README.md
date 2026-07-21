@@ -18,14 +18,17 @@ do that once Phase 1 is far enough along to make it worthwhile.
 ## Build order (Phase 1)
 
 Roughly the order the pipeline needs to come together in - each stage
-feeds the next. The random seed/noise generator shipped 2026-07-20 -
-see [completed/noise-generator.md](completed/noise-generator.md).
+feeds the next. Shipped so far:
+
+- Random seed/noise generator - 2026-07-20, see
+  [completed/noise-generator.md](completed/noise-generator.md).
+- Stable Diffusion imagery generation - 2026-07-21, see
+  [completed/image-generation.md](completed/image-generation.md).
+
 Remaining, in order:
 
-1. [Stable Diffusion imagery generation](active/image-generation.md) -
-   turns the noise into an image, local GPU.
-2. [Claude Vision narrative interpretation](active/narrative-interpretation.md) -
+1. [Claude Vision narrative interpretation](active/narrative-interpretation.md) -
    narrates the imagery, high temperature + logic suppression.
-3. [Feedback loop + orchestration layer](active/feedback-loop.md) -
+2. [Feedback loop + orchestration layer](active/feedback-loop.md) -
    wires the above three together, feeds narrative back in as the next
    seed, runs with no exit condition.

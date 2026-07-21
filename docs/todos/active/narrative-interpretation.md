@@ -4,7 +4,7 @@
 [root README](../../../README.md#phase-1--proof-of-concept-minimal-cost-weeks-to-build).
 
 Claude Vision looks at the imagery produced in
-[image-generation.md](image-generation.md) and narrates it — the
+[image-generation.md](../completed/image-generation.md) and narrates it — the
 stage standing in for the parts of the dreaming brain that build a
 coherent story out of chaotic input (hippocampus pulling in memory-like
 association, amygdala colouring it emotionally) while the logic centre

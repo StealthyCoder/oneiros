@@ -45,6 +45,7 @@ is always the source of truth; the table below is a snapshot of it.
 | `uv run poe tell-tale-lint`  | Check formatting (`black`), import order (`isort`), and style (`flake8`) - no changes. |
 | `uv run poe raven-format`    | Auto-fix formatting and import order (`black` + `isort`, writes changes).              |
 | `uv run poe verify-noise`    | Manual smoke test for the noise generator - loads a real Stable Diffusion pipeline (downloads several GB to the Hugging Face cache on first run) and confirms noise reaches it. |
+| `uv run poe verify-imagery`  | Manual smoke test for imagery generation - turns generated noise into a real image via the visual-cortex stage and saves it to `output/` for a look. |
 
 CI (`.github/workflows/lint.yml`) runs `tell-tale-lint` on every push
 and PR to `main` - run it locally before pushing so CI isn't the first
