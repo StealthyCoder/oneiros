@@ -12,6 +12,14 @@ conventions (naming, git, workflow), see [CLAUDE.md](CLAUDE.md).
 - An NVIDIA GPU with CUDA if you plan to actually run image
   generation (`uv run poe verify-noise` and anything downstream of
   it). Lint/format/tests don't need one.
+- Optional: a Hugging Face account/token, so pipeline downloads
+  (several GB on first run) aren't rate-limited as an anonymous
+  request. The model itself is public - this only affects download
+  speed, not access. Generate a "Read" token at
+  [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens),
+  then run `uv run hf auth login` and paste it in. That stores the
+  token in `~/.cache/huggingface/token`, not in shell config or
+  anything that could end up committed.
 
 ## Setup
 
