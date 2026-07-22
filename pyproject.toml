@@ -10,6 +10,8 @@ dependencies = [
     "safetensors",
     "pillow",
     "torchvision>=0.28.0",
+    "anthropic>=0.117.1",
+    "python-dotenv>=1.2.2",
 ]
 
 [build-system]
@@ -43,3 +45,4 @@ raven-format = { sequence = [
 ], help = "Auto-fix formatting and import order with black + isort" }
 verify-noise = { cmd = "python scripts/verify_noise.py", help = "Manual smoke test: loads a real Stable Diffusion pipeline (downloads several GB to the HF cache on first run) and confirms the noise generator feeds it correctly" }
 verify-imagery = { cmd = "python scripts/verify_imagery.py", help = "Manual smoke test: turns generated noise into a real image via the visual-cortex stage and saves it to output/ for a look" }
+verify-narrative = { cmd = "python scripts/verify_narrative.py", help = "Manual smoke test: runs noise -> imagery -> narrative end to end and prints the dream narrative Claude produces from it" }

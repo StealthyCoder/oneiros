@@ -24,11 +24,11 @@ feeds the next. Shipped so far:
   [completed/noise-generator.md](completed/noise-generator.md).
 - Stable Diffusion imagery generation - 2026-07-21, see
   [completed/image-generation.md](completed/image-generation.md).
+- Claude Vision narrative interpretation - 2026-07-22, see
+  [completed/narrative-interpretation.md](completed/narrative-interpretation.md).
 
 Remaining, in order:
 
-1. [Claude Vision narrative interpretation](active/narrative-interpretation.md) -
-   narrates the imagery, high temperature + logic suppression.
-2. [Feedback loop + orchestration layer](active/feedback-loop.md) -
+1. [Feedback loop + orchestration layer](active/feedback-loop.md) -
    wires the above three together, feeds narrative back in as the next
    seed, runs with no exit condition.

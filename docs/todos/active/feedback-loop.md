@@ -5,7 +5,7 @@
 Depends on the other three Phase 1 items existing first:
 [noise-generator.md](../completed/noise-generator.md),
 [image-generation.md](../completed/image-generation.md),
-[narrative-interpretation.md](narrative-interpretation.md).
+[narrative-interpretation.md](../completed/narrative-interpretation.md).
 
 Python orchestration layer that wires the three stages together into
 an actual cycle: noise → imagery → narrative, then takes part of that

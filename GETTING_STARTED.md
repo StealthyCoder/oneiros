@@ -20,6 +20,18 @@ conventions (naming, git, workflow), see [CLAUDE.md](CLAUDE.md).
   then run `uv run hf auth login` and paste it in. That stores the
   token in `~/.cache/huggingface/token`, not in shell config or
   anything that could end up committed.
+- An Anthropic API key, for the narrative-interpretation stage
+  (`uv run poe verify-narrative` and anything downstream of it). This
+  is billed separately from a claude.ai/Claude Code subscription - get
+  a pay-as-you-go key from
+  [console.anthropic.com](https://console.anthropic.com). Copy
+  `.env.example` to `.env` and paste the key in:
+  ```
+  cp .env.example .env
+  # then edit .env and set ANTHROPIC_API_KEY
+  ```
+  `.env` is gitignored - `load_dotenv()` in `oneiros/narrative.py`
+  reads it at runtime so nothing ends up hardcoded or committed.
 
 ## Setup
 
@@ -54,6 +66,7 @@ is always the source of truth; the table below is a snapshot of it.
 | `uv run poe raven-format`    | Auto-fix formatting and import order (`black` + `isort`, writes changes).              |
 | `uv run poe verify-noise`    | Manual smoke test for the noise generator - loads a real Stable Diffusion pipeline (downloads several GB to the Hugging Face cache on first run) and confirms noise reaches it. |
 | `uv run poe verify-imagery`  | Manual smoke test for imagery generation - turns generated noise into a real image via the visual-cortex stage and saves it to `output/` for a look. |
+| `uv run poe verify-narrative` | Manual smoke test for narrative interpretation - runs noise -> imagery -> narrative end to end and prints the dream narrative Claude produces. Needs an Anthropic API key (see Prerequisites). |
 
 CI (`.github/workflows/lint.yml`) runs `tell-tale-lint` on every push
 and PR to `main` - run it locally before pushing so CI isn't the first
