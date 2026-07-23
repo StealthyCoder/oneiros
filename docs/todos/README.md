@@ -33,3 +33,17 @@ Phase 1 (Proof of Concept) is fully built - all four items above are
 shipped and verified against real infrastructure. Phase 2 isn't broken
 into `docs/todos/` items yet; see the root README's roadmap for what
 that phase covers.
+
+## Open follow-on questions
+
+Not build-order items - these are ideas and open questions on top of the
+shipped Phase 1 loop, tracked so they aren't lost before there's time to
+work through them:
+
+- [active/narrative-latent-influence.md](active/narrative-latent-influence.md) -
+  whether narrative content actually has any causal influence on
+  subsequent imagery (currently: no). Open design question, blocks the
+  item below.
+- [active/blend-weight-gradient.md](active/blend-weight-gradient.md) -
+  drifting `blend_weight` across a run on a sleep-cycle-shaped schedule
+  instead of holding it fixed. Blocked on the item above.
