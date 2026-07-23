@@ -26,9 +26,10 @@ feeds the next. Shipped so far:
   [completed/image-generation.md](completed/image-generation.md).
 - Claude Vision narrative interpretation - 2026-07-22, see
   [completed/narrative-interpretation.md](completed/narrative-interpretation.md).
+- Feedback loop + orchestration layer - 2026-07-23, see
+  [completed/feedback-loop.md](completed/feedback-loop.md).
 
-Remaining, in order:
-
-1. [Feedback loop + orchestration layer](active/feedback-loop.md) -
-   wires the above three together, feeds narrative back in as the next
-   seed, runs with no exit condition.
+Phase 1 (Proof of Concept) is fully built - all four items above are
+shipped and verified against real infrastructure. Phase 2 isn't broken
+into `docs/todos/` items yet; see the root README's roadmap for what
+that phase covers.

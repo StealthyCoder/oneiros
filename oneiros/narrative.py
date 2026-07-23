@@ -1,4 +1,5 @@
 import base64
+from dataclasses import dataclass
 from io import BytesIO
 
 import anthropic
@@ -11,6 +12,13 @@ from PIL.Image import Image
 # approximation of it.
 MODEL_ID = "claude-sonnet-4-5"
 TEMPERATURE = 1.0
+
+# Anthropic's first-party rate for MODEL_ID, confirmed against the live
+# pricing docs 2026-07-23 - not exposed via the Models API, so there's
+# nowhere to fetch this at runtime. Worth re-checking if MODEL_ID ever
+# changes or pricing is restructured.
+INPUT_PRICE_PER_MTOK = 3.00
+OUTPUT_PRICE_PER_MTOK = 15.00
 
 LOGIC_OFFLINE_PROMPT = (
     "You are the part of a dreaming brain that turns raw visual noise into "
@@ -43,13 +51,24 @@ def _image_to_base64_png(image: Image) -> str:
     return base64.standard_b64encode(buffer.getvalue()).decode("utf-8")
 
 
+@dataclass
+class Narration:
+    """A narrated dream fragment plus what it cost to produce - the feedback
+    loop needs the latter to support an opt-in spend cap (see
+    docs/todos/completed/feedback-loop.md).
+    """
+
+    text: str
+    cost_usd: float
+
+
 def narrate_imagery(
     client: anthropic.Anthropic,
     image: Image,
     model: str = MODEL_ID,
     temperature: float = TEMPERATURE,
     max_tokens: int = 1024,
-) -> str:
+) -> Narration:
     """Hippocampus/amygdala equivalent: narrates imagery into a dream fragment.
 
     High temperature and the logic-suppression system prompt are the two
@@ -78,4 +97,9 @@ def narrate_imagery(
             }
         ],
     )
-    return next(block.text for block in response.content if block.type == "text")
+    text = next(block.text for block in response.content if block.type == "text")
+    cost_usd = (
+        response.usage.input_tokens * INPUT_PRICE_PER_MTOK
+        + response.usage.output_tokens * OUTPUT_PRICE_PER_MTOK
+    ) / 1_000_000
+    return Narration(text=text, cost_usd=cost_usd)

@@ -46,3 +46,4 @@ raven-format = { sequence = [
 verify-noise = { cmd = "python scripts/verify_noise.py", help = "Manual smoke test: loads a real Stable Diffusion pipeline (downloads several GB to the HF cache on first run) and confirms the noise generator feeds it correctly" }
 verify-imagery = { cmd = "python scripts/verify_imagery.py", help = "Manual smoke test: turns generated noise into a real image via the visual-cortex stage and saves it to output/ for a look" }
 verify-narrative = { cmd = "python scripts/verify_narrative.py", help = "Manual smoke test: runs noise -> imagery -> narrative end to end and prints the dream narrative Claude produces from it" }
+dream-within-a-dream = { cmd = "python scripts/dream.py", help = "Runs the feedback loop for real: noise -> imagery -> narrative -> next seed, no exit condition unless you pass --max-cycles / --max-spend" }

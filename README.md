@@ -112,7 +112,10 @@ Oneiros differs in one specific intent: it is not trying to make AI *perform* dr
 
 ## Current Status
 
-🌱 **Pre-PoC** — concept documented, repository initialised, Phase 1 in design.
+🌙 **Phase 1 (Proof of Concept) built** — noise, imagery, narrative, and the
+feedback loop tying them together are all shipped and verified against real
+infrastructure. The loop runs. Phase 2 (Sensory Expansion) is not yet
+started.
 
 ---
 

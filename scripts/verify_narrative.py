@@ -16,10 +16,10 @@ def main() -> None:
 
     print("logic centre going offline - narrating the dream...")
     client = load_client()
-    narrative = narrate_imagery(client, image)
+    narration = narrate_imagery(client, image)
 
-    print("\n--- dream narrative ---")
-    print(narrative)
+    print(f"\n--- dream narrative (cost: ${narration.cost_usd:.4f}) ---")
+    print(narration.text)
 
 
 if __name__ == "__main__":
