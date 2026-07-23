@@ -47,3 +47,7 @@ work through them:
 - [active/blend-weight-gradient.md](active/blend-weight-gradient.md) -
   drifting `blend_weight` across a run on a sleep-cycle-shaped schedule
   instead of holding it fixed. Blocked on the item above.
+
+See also [../findings/](../findings/README.md) for observations from
+actually running the loop, which inform both items above but aren't
+build-tracking work themselves.
